@@ -4,11 +4,33 @@ version = "0.1.0"
 description = "Scrapy pipeline that uses Jev (TypeSafe AI) to spot-check scraped fields and stop a crawl when extraction quality drops."
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "John WR" },
+]
+keywords = ["scrapy", "extension", "pipeline", "quality", "jev", "typesafe"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Scrapy",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+]
 dependencies = [
     "itemadapter>=0.8",
     "requests>=2.31",
     "scrapy>=2.14",
 ]
+
+[project.urls]
+Homepage = "https://github.com/jhnwr/scrapy-jev"
+Repository = "https://github.com/jhnwr/scrapy-jev"
+Issues = "https://github.com/jhnwr/scrapy-jev/issues"
 
 [dependency-groups]
 dev = [
@@ -21,6 +43,15 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/scrapy_jev"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/scrapy_jev/**",
+    "tests/**",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

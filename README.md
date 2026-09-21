@@ -69,3 +69,19 @@ add-on (and the pipeline) disable themselves until you configure them.
   drifted and returns nothing" break.
 - After `JEV_SAMPLE_SIZE` items, if the passed share is below
   `JEV_PASS_RATE_THRESHOLD`, the spider is stopped.
+
+## Releasing
+
+Releases are published to PyPI via GitHub Actions using trusted publishing
+(no token stored in the repo). To cut a release:
+
+1. Bump the version in `pyproject.toml` and add an entry to `CHANGELOG.md`.
+   ```sh
+   uv build          # sanity check: builds clean, twine check passes
+   ```
+2. Commit, then tag and push the tag:
+   ```sh
+   git tag v0.1.0
+   git push origin v0.1.0
+   ```
+3. The `publish.yml` workflow builds and uploads to PyPI automatically.
